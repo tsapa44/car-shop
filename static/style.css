@@ -1,0 +1,152 @@
+/* Navbar */
+header.navbar.navbar-inverse {
+  margin-bottom: 0;
+}
+
+.nav.navbar-nav > li {
+  font-size: 17px;
+}
+
+
+/* Heading */
+.jumbotron {
+  text-align: center;
+  margin-bottom: 10px;
+
+  background-color: #13a89e;
+  color: white;
+}
+
+.jumbotron h1 {
+  color: white;
+}
+
+.jumbotron p {
+  margin: 5px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .jumbotron h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* Main section */
+.main-section {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  font-size: 15px;
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.image-container {
+  display: inline-flex;
+  width: 300px;
+  height: 300px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.image-container > img {
+  object-fit: contain;
+}
+
+textarea {
+    max-width: 100%;
+}
+
+.feedback-form > button {
+  margin-top: 20px;
+}
+
+#fxapp_id-error {
+  position: static !important; /* u wot m8 */
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact-item {
+  display: inline-block;
+}
+
+.contact-item + .contact-item::before {
+  content: "|";
+  color: #707070;
+  margin: 0 3px;
+}
+
+.navbar-inverse {
+	background-color: rgb(255, 255, 255);
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+	color: #072238;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
+	background-color: #13a89e;
+}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+    color: #13a89e;
+    background-color: transparent;
+}
+
+.navbar-brand {
+	padding: 2px 15px;
+}
+
+.navbar-brand>img {
+	height: 60px;
+}
+
+.image-container {
+    display: inline-flex;
+    width: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+select.form-control {
+	margin-bottom: 10px;
+}
+
+.container__sign-in {
+	width: 40%;
+	margin: auto;
+}
+
+.logo-wrapper {
+	width: 100%;
+	padding: 5px;
+}
+
+.logo-wrapper > a {
+	display: inline-block;
+	margin-left: calc(50% - 100px);
+}
+
+.margin-top {
+	margin-top: 20px;
+}
