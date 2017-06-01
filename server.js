@@ -4,6 +4,7 @@ const request = require('request');
 const carService = require('./resources/car/car.service');
 const customerService = require('./resources/customer/customer.service');
 const orderService = require('./resources/order/order.service');
+const userService = require('./resources/user/user.service');
 
 const server = restify.createServer();
 
@@ -17,11 +18,39 @@ server.get('/(order|signin|admin)$', restify.serveStatic({
   file: 'index.html',
 }));
 
+server.get('/validate', (req, res, next) => {
+  const { username, password } = req.params;
+  userService.validateUser(username, password)
+    .then(isAuthorized => {
+      if (isAuthorized) {
+        return res.send(200, isAuthorized);
+      }
+      return res.send(403, new Error('Not Authorized User'));
+    })
+    return next();
+})
+
 server.get('/cars', (req, res, next) => {
   carService.find().then(cars => res.send(200, cars));
   return next();
 });
 
+server.post('/order', (req, res, next) => {
+  const { model, passport, lease } = req.params;
+  orderService.createOrder(model, passport, lease).then((doc) => res.send(201, doc));
+  return next();
+});
+
+server.post('/login', (req, res, next) => {
+  const { username, password, role } = req.params;
+  userService.validateUser(username, password, role)
+    .then(isAuthorized => {
+      if (isAuthorized) {
+        return res.send(201, isAuthorized);
+      }
+    })
+    return next();
+})
 // server.get('/customer', (req, res, next) => {
 //   customerService.getCustomer();
 // })
@@ -39,18 +68,17 @@ server.get('/init/car', (req, res, next) => {
 });
 
 server.get('/init/customer', (req, res, next) => {
-  customerService.createCustomer('MP1729578');
-  customerService.createCustomer('MP1967932');
-  customerService.createCustomer('MP9583721');
-  customerService.createCustomer('MP0000001');
+  customerService.createCustomer('MP1234');
+  customerService.createCustomer('MP4321');
+  customerService.createCustomer('MP1111');
+  customerService.createCustomer('MP3333');
   return next();
-})
+});
 
-server.post('/order', (req, res, next) => {
-  const { model, passport, lease } = req.params;
-  orderService.createOrder(model, passport, lease).then((doc) => res.send(201, doc));
-  return next();
-})
+server.get('/init/user', (req, res, next) => {
+  userService.createUser('admin', 'admin', 'admin');
+  userService.createUser('guest', 'guest', 'guest');
+});
 
 server.pre(serveStatic(__dirname));
 server.listen(3005,

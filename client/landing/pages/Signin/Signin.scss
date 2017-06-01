@@ -1,0 +1,29 @@
+.signin {
+  &__welcome {
+    background-color: #1ebdb3;
+    width: 100%;
+    & h3 {
+      margin: 0;
+      padding: 40px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  &__btn {
+    margin-top: 30px;
+  }
+
+  &__thanks {
+    background-color: #1ebdb3;
+    padding: 20px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    width: 200px;
+    border-radius: 5px;
+  }
+}
+
+.container__sign-in {
+  margin: 60px auto;
+}
