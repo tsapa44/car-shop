@@ -1,0 +1,23 @@
+.home {
+  &__welcome {
+    background-color: #1ebdb3;
+    width: 100%;
+    & h3 {
+      margin: 0;
+      padding: 40px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+
+  &__cars {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+}

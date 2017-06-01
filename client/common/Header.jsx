@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {
+  Link
+} from 'react-router-dom';
 import cx from 'classnames';
 
 export default class Header extends React.Component {
@@ -15,22 +18,19 @@ export default class Header extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="index.html"><img src="./static/images/logo.png" /></a>
+            <Link className="navbar-brand" to='/'><img src="client/static/images/logo.png" /></Link>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
-              <li className={cx({
-                  'active': window.location.pathname === '/',
-                })}><a href="index.html">Home</a></li>
-              <li className={cx({
-                  'active': window.location.pathname === '/order',
-                })}><a href="order.html">Order</a></li>
-              <li className={cx({
-                  'active': window.location.pathname === '/gallery',
-                })}><a href="gallery.html">Gallery of cars</a></li>
-        <li className={cx({
-            'active': window.location.pathname === '/signin',
-          })}><a href="signin.html">Sign in</a></li>
+              <li className={cx({ 'active': window.location.pathname === '/' })}>
+                <Link to='/'>Home</Link>
+              </li>
+              <li className={cx({ 'active': window.location.pathname === '/order' })}>
+                <Link to='/order'>Order</Link>
+              </li>
+              <li className={cx({ 'active': window.location.pathname === '/signin' })}>
+                <Link to='/signin'>Sign in</Link>
+              </li>
             </ul>
           </div>
         </div>

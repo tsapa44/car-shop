@@ -4,7 +4,7 @@ const cssnano = require('cssnano');
 const webpack = require('webpack');
 const path = require('path');
 module.exports = {
-  entry: './main.js',
+  entry: './index.js',
   output: {
     path: `${__dirname}/build`,
     filename: 'bundle.js'
