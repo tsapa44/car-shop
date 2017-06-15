@@ -50,7 +50,24 @@ server.post('/login', (req, res, next) => {
       }
     })
     return next();
-})
+});
+
+server.post('/chat', (req, res, next) => {
+  const { username, role } = req.params;
+  // res.redirect({
+  //   hostname: 'localhost',
+  //   pathname: '/',
+  //   port: 8181,                 // defaults to 80
+  //   secure: false,             // sets https
+  //   permanent: true,
+  //   query: {
+  //     username,
+  //     role,
+  //   },
+  // }, next);
+  res.redirect(`http://localhost:8181/?username=${username}&role=${role}`, next);
+  return next();
+});
 // server.get('/customer', (req, res, next) => {
 //   customerService.getCustomer();
 // })
@@ -78,6 +95,7 @@ server.get('/init/customer', (req, res, next) => {
 server.get('/init/user', (req, res, next) => {
   userService.createUser('admin', 'admin', 'admin');
   userService.createUser('guest', 'guest', 'guest');
+  userService.createUser('Anton', '12345', 'guest');
 });
 
 server.pre(serveStatic(__dirname));
